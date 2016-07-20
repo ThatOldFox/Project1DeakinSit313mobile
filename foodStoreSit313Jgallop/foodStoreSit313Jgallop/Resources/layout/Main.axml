@@ -25,10 +25,9 @@
         android:text="Create Recipe"
         android:layout_width="312.0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/button1"
+        android:id="@+id/bt1"
         android:layout_marginTop="20.0dp"
         android:textAllCaps="false"
-        android:textAlignment="textStart"
         android:textSize="23.0dp"
         android:textStyle="italic"
         android:typeface="serif" />
