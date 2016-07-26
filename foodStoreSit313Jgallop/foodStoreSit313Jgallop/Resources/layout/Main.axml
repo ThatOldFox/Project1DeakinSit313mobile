@@ -23,7 +23,7 @@
         android:textSize="30.0dp" />
     <Button
         android:text="Create Recipe"
-        android:layout_width="312.0dp"
+        android:layout_width="387.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/bt1"
         android:layout_marginTop="20.0dp"
@@ -33,7 +33,7 @@
         android:typeface="serif" />
     <Button
         android:text="View Recipe's"
-        android:layout_width="312.0dp"
+        android:layout_width="388.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/button2"
         android:textSize="23.0dp"
@@ -43,7 +43,7 @@
         android:layout_marginTop="13.0dp" />
     <Button
         android:text="Edit Recipe's"
-        android:layout_width="312.0dp"
+        android:layout_width="387.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/button3"
         android:textAllCaps="false"

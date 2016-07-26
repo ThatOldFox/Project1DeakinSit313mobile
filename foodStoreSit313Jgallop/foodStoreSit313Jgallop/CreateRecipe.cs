@@ -38,6 +38,9 @@ namespace foodStoreSit313Jgallop
 
             Button AddStep = FindViewById<Button>(Resource.Id.AddStep);
             AddStep.Click += delegate { addStep(); };
+
+            Button AddRec = FindViewById<Button>(Resource.Id.AddRecp);
+            AddRec.Click += delegate { AddRecipe(); };
             
             #endregion
             
@@ -67,17 +70,44 @@ namespace foodStoreSit313Jgallop
         #endregion
 
         #region Sqlite Methods
-        //https://developer.xamarin.com/guides/cross-platform/application_fundamentals/data/part_3_using_sqlite_orm/
+        //https://developer.xamarin.com/guides/cross-platform/application_fundamentals/data/part_4_using_adonet/
 
         public void AddRecipe()
         {
             var connection = new SqliteConnection("Data Source=" + DatabaseFile);
-            connection.Open();
+            EditText RecipeName = FindViewById<EditText>(Resource.Id.ETrecipeName);
 
 
+           // check if the database file exists
+            if (File.Exists(DatabaseFile))
+            {
+                SqliteCommand AddData = new SqliteCommand(@"INSERT INTO Recipes (Name,Quantities,Steps) VALUES ('" + RecipeName.Text + "', '" + Ingridients + "', '" + Steps + "' )", connection);
+
+                connection.Open();
+
+                AddData.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            else
+            {
+                SqliteConnection.CreateFile(DatabaseFile);
+                SqliteCommand CreateRecipeTable = new SqliteCommand("CREATE TABLE [Recipes] ( [Id] INTEGER NOT NULL, [Name] nvarchar(100) NULL, [Quantities] nvarchar(4000) NULL, [Steps] nvarchar(4000) NULL, CONSTRAINT[PK_Recipes] PRIMARY KEY([Id])); ", connection);
+                connection.Open();
+                CreateRecipeTable.ExecuteNonQuery();
+                connection.Close();
+
+                SqliteCommand AddData = new SqliteCommand(@"INSERT INTO Recipes (Name,Quantities,Steps) VALUES ('" + RecipeName.Text + "', '" + Ingridients + "', '"+ Steps +"' )", connection);
+
+                connection.Open();
+
+                AddData.ExecuteNonQuery();
+
+                connection.Close();
 
 
-            connection.Close();
+            }
+
         }
 
 
