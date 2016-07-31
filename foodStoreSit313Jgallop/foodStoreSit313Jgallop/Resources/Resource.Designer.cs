@@ -81,6 +81,12 @@ namespace foodStoreSit313Jgallop
 			// aapt resource value: 0x7f050006
 			public const int Ingredients = 2131034118;
 			
+			// aapt resource value: 0x7f050010
+			public const int RecipeList = 2131034128;
+			
+			// aapt resource value: 0x7f05000f
+			public const int RecipeName = 2131034127;
+			
 			// aapt resource value: 0x7f05000a
 			public const int Steps = 2131034122;
 			
@@ -91,7 +97,7 @@ namespace foodStoreSit313Jgallop
 			public const int bt1 = 2131034124;
 			
 			// aapt resource value: 0x7f05000d
-			public const int button2 = 2131034125;
+			public const int bt2 = 2131034125;
 			
 			// aapt resource value: 0x7f05000e
 			public const int button3 = 2131034126;
@@ -122,7 +128,16 @@ namespace foodStoreSit313Jgallop
 			public const int CreateRecipe = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Main = 2130903041;
+			public const int ListItem = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int Main = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int RecipeView = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int ViewRecipes = 2130903044;
 			
 			static Layout()
 			{

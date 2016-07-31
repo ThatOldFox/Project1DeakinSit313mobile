@@ -20,8 +20,10 @@ namespace foodStoreSit313Jgallop
 
             //set instance of create recipie button to a new button object
             Button CreateRecipe = FindViewById<Button>(Resource.Id.bt1);
+            Button ViewRecipes = FindViewById<Button>(Resource.Id.bt2);
 
             CreateRecipe.Click += delegate { StartActivity(typeof(CreateRecipe)); };
+            ViewRecipes.Click += delegate { StartActivity(typeof(ViewRecipes)); };
                 
         }
     }

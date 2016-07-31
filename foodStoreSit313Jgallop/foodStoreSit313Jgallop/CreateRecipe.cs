@@ -54,7 +54,8 @@ namespace foodStoreSit313Jgallop
             string In = "";
             In = Ingri.Text + "\n";
             TextView TVIngri = FindViewById<TextView>(Resource.Id.Ingredients);
-            TVIngri.Text += In;           
+            TVIngri.Text += In;
+           
         }
 
         private void addStep()
@@ -76,18 +77,36 @@ namespace foodStoreSit313Jgallop
         {
             var connection = new SqliteConnection("Data Source=" + DatabaseFile);
             EditText RecipeName = FindViewById<EditText>(Resource.Id.ETrecipeName);
+            bool TableExists;
+
+            try
+            {
+                SqliteCommand test = new SqliteCommand("SELECT Name FROM Recipes", connection);
+                connection.Open();
+                test.ExecuteNonQuery();
+                connection.Close();
+
+                TableExists = true;
+            }
+            catch
+            {
+                connection.Close();
+                TableExists = false;
+            }
 
 
-           // check if the database file exists
-            if (File.Exists(DatabaseFile))
+           //check if the database file exists
+            if (File.Exists(DatabaseFile) && TableExists == true)
             {
                 SqliteCommand AddData = new SqliteCommand(@"INSERT INTO Recipes (Name,Quantities,Steps) VALUES ('" + RecipeName.Text + "', '" + Ingridients + "', '" + Steps + "' )", connection);
-
+                
                 connection.Open();
 
                 AddData.ExecuteNonQuery();
 
                 connection.Close();
+
+                Toast.MakeText(this, "Recipe Added", ToastLength.Long).Show();
             }
             else
             {
@@ -105,16 +124,12 @@ namespace foodStoreSit313Jgallop
 
                 connection.Close();
 
+                Toast.MakeText(this, "Recipe Added", ToastLength.Long).Show();
+
 
             }
 
         }
-
-
-
-
-
-
 
         #endregion
 
