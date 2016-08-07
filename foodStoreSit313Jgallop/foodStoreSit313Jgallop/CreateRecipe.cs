@@ -98,15 +98,44 @@ namespace foodStoreSit313Jgallop
            //check if the database file exists
             if (File.Exists(DatabaseFile) && TableExists == true)
             {
-                SqliteCommand AddData = new SqliteCommand(@"INSERT INTO Recipes (Name,Quantities,Steps) VALUES ('" + RecipeName.Text + "', '" + Ingridients + "', '" + Steps + "' )", connection);
-                
+                bool NameExists = false;
+                string Check = "";
+                SqliteCommand CheckName = new SqliteCommand("SELECT Name FROM Recipes WHERE Name ='" + RecipeName.Text + "'", connection);
+                SqliteDataReader rdr;
+
                 connection.Open();
 
-                AddData.ExecuteNonQuery();
-
+                rdr = CheckName.ExecuteReader();
+                while(rdr.Read())
+                {
+                    Check = rdr[0].ToString();
+                }
                 connection.Close();
 
-                Toast.MakeText(this, "Recipe Added", ToastLength.Long).Show();
+
+                if (Check != "")
+                {
+                    NameExists = true;
+                }
+
+                if(NameExists == false)
+                {
+
+
+                    SqliteCommand AddData = new SqliteCommand(@"INSERT INTO Recipes (Name,Quantities,Steps) VALUES ('" + RecipeName.Text + "', '" + Ingridients + "', '" + Steps + "' )", connection);
+
+                    connection.Open();
+
+                    AddData.ExecuteNonQuery();
+
+                    connection.Close();
+
+                    Toast.MakeText(this, "Recipe Added", ToastLength.Long).Show();
+                }
+                else
+                {
+                    Toast.MakeText(this, "Recipe Name Already In Use", ToastLength.Long).Show();
+                }
             }
             else
             {

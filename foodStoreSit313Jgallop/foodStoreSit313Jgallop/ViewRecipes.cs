@@ -28,7 +28,7 @@ namespace foodStoreSit313Jgallop
             SetContentView(Resource.Layout.ViewRecipes);
 
             #region database Connections
-            //connect and retrive data base values
+            //connect and retrive database values
 
             try
             {

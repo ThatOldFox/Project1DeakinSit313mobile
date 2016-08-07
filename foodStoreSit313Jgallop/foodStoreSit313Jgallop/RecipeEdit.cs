@@ -27,13 +27,16 @@ namespace foodStoreSit313Jgallop
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.RecipeEdit);
             Button EditRecipe = FindViewById<Button>(Resource.Id.EditRecp);
+            Button DelRecipe = FindViewById<Button>(Resource.Id.DelRecp);
 
             EditRecipe.Click += delegate { UpdateRecipe(); };
+            DelRecipe.Click += delegate { DeleteRecipe(); };
 
             RecipeName = Intent.GetStringExtra("RecipeName") ?? "Data Not There";
             GetSqlData();
         }
 
+        #region SqlData
         private void GetSqlData()
         {
             EditText Name = FindViewById<EditText>(Resource.Id.ETrecipeName);
@@ -82,6 +85,29 @@ namespace foodStoreSit313Jgallop
 
             Toast.MakeText(this, "Recipe Updated", ToastLength.Long).Show();
         }
+        #endregion
+
+
+        private void DeleteRecipe()
+        {
+            SqliteCommand DeleteRecipe = new SqliteCommand("DELETE FROM Recipes WHERE Name='" + RecipeName + "'", connection);
+
+            connection.Open();
+
+            DeleteRecipe.ExecuteNonQuery();
+
+            connection.Close();
+
+            Toast.MakeText(this, "Recipe Deleted", ToastLength.Long);
+
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+
+            this.Finish();
+
+
+        }
+
     }
-    
+
 }

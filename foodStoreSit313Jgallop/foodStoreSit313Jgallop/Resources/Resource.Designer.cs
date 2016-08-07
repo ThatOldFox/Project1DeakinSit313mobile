@@ -75,6 +75,9 @@ namespace foodStoreSit313Jgallop
 			// aapt resource value: 0x7f050009
 			public const int AddStep = 2131034121;
 			
+			// aapt resource value: 0x7f050014
+			public const int DelRecp = 2131034132;
+			
 			// aapt resource value: 0x7f050004
 			public const int ETIngri = 2131034116;
 			
@@ -99,8 +102,8 @@ namespace foodStoreSit313Jgallop
 			// aapt resource value: 0x7f05000c
 			public const int RecipeList = 2131034124;
 			
-			// aapt resource value: 0x7f050014
-			public const int RecipeName = 2131034132;
+			// aapt resource value: 0x7f050015
+			public const int RecipeName = 2131034133;
 			
 			// aapt resource value: 0x7f05000a
 			public const int Steps = 2131034122;
