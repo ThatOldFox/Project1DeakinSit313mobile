@@ -10,12 +10,14 @@
         android:minHeight="25px"
         android:background="@drawable/Gradient">
         <TextView
-            android:text="  Create A Recipe"
+            android:text="  Edit A Recipe"
             android:textColor="#000000"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="match_parent"
+            android:layout_width="397.0dp"
             android:layout_height="38.0dp"
             android:id="@+id/textView1"
+            android:layout_marginRight="127.0dp"
+            android:layout_marginLeft="0.0dp"
             android:layout_marginTop="20.0dp"
             android:textStyle="italic"
             android:typeface="serif"
@@ -28,7 +30,7 @@
             android:textColor="#000000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView2"
+            android:id="@+id/Name"
             android:layout_marginTop="14.0dp"
             android:layout_marginLeft="4.0dp"
             android:textStyle="italic"
@@ -49,7 +51,7 @@
             android:textColor="#000000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Tb1"
+            android:id="@+id/Ingri"
             android:layout_marginTop="13.0dp"
             android:layout_marginLeft="5.0dp"
             android:textStyle="italic"
@@ -64,12 +66,6 @@
             android:layout_marginTop="0.0dp"
             android:layout_marginRight="5.0dp"
             android:layout_marginLeft="5.0dp" />
-        <Button
-            android:text="Add Ingredient"
-            android:layout_width="199.0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/AddIngri"
-            android:layout_marginLeft="96.0dp" />
         <TextView
             android:inputType="textMultiLine"
             android:textColor="#000000"
@@ -97,13 +93,6 @@
             android:layout_marginTop="0.0dp"
             android:layout_marginRight="5.0dp"
             android:layout_marginLeft="5.0dp" />
-        <Button
-            android:text="Add Step"
-            android:layout_width="199.0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/AddStep"
-            android:layout_marginLeft="96.0dp"
-            android:layout_marginTop="0.0dp" />
         <TextView
             android:inputType="textMultiLine"
             android:textColor="#000000"
@@ -111,9 +100,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/Steps" />
         <Button
-            android:text="Add Recipe"
+            android:text="Edit Recipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/AddRecp" />
+            android:id="@+id/EditRecp" />
     </LinearLayout>
 </ScrollView>
