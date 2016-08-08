@@ -55,6 +55,7 @@ namespace foodStoreSit313Jgallop
             In = Ingri.Text + "\n";
             TextView TVIngri = FindViewById<TextView>(Resource.Id.Ingredients);
             TVIngri.Text += In;
+            Ingri.Text = "";
            
         }
 
@@ -65,6 +66,7 @@ namespace foodStoreSit313Jgallop
             st = Step.Text + "\n";
             TextView TVSteps = FindViewById<TextView>(Resource.Id.Steps);
             TVSteps.Text += st;
+            Step.Text = "";
 
         }
 

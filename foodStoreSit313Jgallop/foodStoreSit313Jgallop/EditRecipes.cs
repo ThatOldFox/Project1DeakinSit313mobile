@@ -46,7 +46,7 @@ namespace foodStoreSit313Jgallop
             }
             catch
             {
-                Recipes.Add("error sql not found");
+                Recipes.Add("No Recipes Created");
             }
 
             #endregion

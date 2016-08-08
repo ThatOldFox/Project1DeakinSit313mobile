@@ -44,20 +44,26 @@ namespace foodStoreSit313Jgallop
             TextView Steps = FindViewById<TextView>(Resource.Id.Steps);
             var connection = new SqliteConnection("Data Source=" + DatabaseFile);
 
-
-            SqliteDataReader rdr;
-            SqliteCommand test = new SqliteCommand("SELECT * FROM Recipes WHERE Name = '" + RecipeName + "' ", connection);
-            connection.Open();
-            rdr = test.ExecuteReader();
-
-            while(rdr.Read())
+            try
             {
-                
-                Ingridients.Text = rdr[2].ToString().Replace("," , "\n");
-                Steps.Text = rdr[3].ToString().Replace(",", "\n");
-            }
+                SqliteDataReader rdr;
+                SqliteCommand test = new SqliteCommand("SELECT * FROM Recipes WHERE Name = '" + RecipeName + "' ", connection);
+                connection.Open();
+                rdr = test.ExecuteReader();
 
-            connection.Close();
+                while (rdr.Read())
+                {
+
+                    Ingridients.Text = rdr[2].ToString().Replace(",", "\n");
+                    Steps.Text = rdr[3].ToString().Replace(",", "\n");
+                }
+
+                connection.Close();
+            }
+            catch
+            {
+                Toast.MakeText(this, "There Are No Recipes", ToastLength.Long);
+            }
 
         }
 

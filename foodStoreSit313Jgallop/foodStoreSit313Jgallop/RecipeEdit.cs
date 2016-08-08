@@ -13,6 +13,7 @@ using System.Data;
 using Mono.Data.Sqlite;
 
 
+
 namespace foodStoreSit313Jgallop
 {
     [Activity(Label = "RecipeEdit")]
@@ -64,7 +65,7 @@ namespace foodStoreSit313Jgallop
             }
             catch
             {
-
+                Toast.MakeText(this, "There Are No Recipes", ToastLength.Long);
             }
         }
 
@@ -83,7 +84,10 @@ namespace foodStoreSit313Jgallop
 
             connection.Close();
 
-            Toast.MakeText(this, "Recipe Updated", ToastLength.Long).Show();
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+
+            this.Finish();
         }
         #endregion
 
@@ -95,14 +99,12 @@ namespace foodStoreSit313Jgallop
             connection.Open();
 
             DeleteRecipe.ExecuteNonQuery();
-
+            
             connection.Close();
-
-            Toast.MakeText(this, "Recipe Deleted", ToastLength.Long);
 
             Intent intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
-
+            
             this.Finish();
 
 
