@@ -7,11 +7,13 @@ Created And Tested on android API 23 and on Nexus 4 using Android_Accelerated_x8
 Licences 
 
 Xamarin-Android and Mono Under Mit License
+
 - jonpryor,2016,xamarin-android/LICENSE,Xamarin,Retrieved,15/07/2016
   https://github.com/xamarin/xamarin-android/blob/master/LICENSE 
 
 
 Refrences
+
 -Gray,N,2014,Exhaustive Review Pulls Together Evidence on Food Groups and Diet Related Disease, FoodNavigator.com,Retrieved 3/08/2016
  http://www.foodnavigator.com/Science/Big-data-Exhaustive-review-pulls-together-evidence-on-food-groups-and-diet-related-disease
 
