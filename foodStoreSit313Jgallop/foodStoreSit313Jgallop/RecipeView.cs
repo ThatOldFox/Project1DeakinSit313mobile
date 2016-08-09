@@ -1,3 +1,8 @@
+/*Purpose to allow the users to view a recipe stored in the database
+ * References...
+ * Xamarin,2016,Configuration,Xamarin, Retrived 18/07/2016 https://developer.xamarin.com/guides/cross-platform/application_fundamentals/data/part_2_configuration/
+ * Xamarin,2016,Passing Data Between Activitys,Xamarin,Retrieved 29/07/2016 https://developer.xamarin.com/recipes/android/fundamentals/activity/pass_data_between_activity/
+ */
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +24,14 @@ namespace foodStoreSit313Jgallop
     {
         private TextView Name;
         private string RecipeName = "";
-        private string DatabaseFile = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "Recipes.db3");
+        private string DatabaseFile = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "Recipes.db3"); //(Xamarin,2016)
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.RecipeView);
-
-            RecipeName = Intent.GetStringExtra("RecipeName") ?? "Data Not There";
+            //get the recipe name from the intent and set it to default if its not there
+            RecipeName = Intent.GetStringExtra("RecipeName") ?? "Data Not There"; //(Xamarin,2016)
 
             Name = FindViewById<TextView>(Resource.Id.RecipeName);
 
@@ -36,14 +41,14 @@ namespace foodStoreSit313Jgallop
             LoadSqlData();
         }
 
-    
 
+        #region load sql data
         private void LoadSqlData()
         {
             TextView Ingridients = FindViewById<TextView>(Resource.Id.Ingredients);
             TextView Steps = FindViewById<TextView>(Resource.Id.Steps);
             var connection = new SqliteConnection("Data Source=" + DatabaseFile);
-
+            //load the recipe data into the text views using sql
             try
             {
                 SqliteDataReader rdr;
@@ -66,8 +71,9 @@ namespace foodStoreSit313Jgallop
             }
 
         }
+        #endregion
 
 
-    
+
     }
 }

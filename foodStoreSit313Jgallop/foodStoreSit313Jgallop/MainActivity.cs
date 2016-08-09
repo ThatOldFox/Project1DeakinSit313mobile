@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*
+ * Purpose to call activities when there coresponding button is clicked
+ */
+using System;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
